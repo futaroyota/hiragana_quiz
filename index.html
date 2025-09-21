@@ -3,41 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hiragana Quiz</title>
+    <title>Japanese Quiz</title>
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Hiragana Quiz</h1>
-        </header>
-
-        <!-- Quiz Section -->
-        <div id="quiz-container">
-            <div id="progress-bar">
-                <div id="progress"></div>
-            </div>
-
-            <div id="timer">Time Left: <span id="time-left">15</span>s</div>
-
-            <div id="question-container"></div>
-
-            <div id="answer-container"></div>
-
-            <button id="next-btn" class="btn hidden">Next</button>
-        </div>
-
-        <!-- Results Section -->
-        <div id="results-container" class="hidden">
-            <h2>Quiz Results</h2>
-            <p id="score"></p>
-            <div id="mistakes"></div>
-            <button id="restart-btn" class="btn">Restart Quiz</button>
+    <!-- ========== MENU ========= -->
+    <div id="menu">
+        <h1>Japanese Quiz</h1>
+        <div class="cards">
+            <div class="card" id="hiragana-btn">Hiragana</div>
+            <div class="card" id="katakana-btn">Katakana</div>
+            <div class="card" id="kanji-btn">Kanji</div>
         </div>
     </div>
 
-    <!-- Confetti Canvas -->
-    <canvas id="confetti"></canvas>
+    <!-- ========== QUIZ ========= -->
+    <div id="quiz-container" style="display:none;">
+        <div class="quiz-header">
+            <progress id="progress" max="100" value="0"></progress>
+            <div id="timer">Time: 0s</div>
+        </div>
+        <div id="question" class="question"></div>
+        <div id="options" class="options"></div>
+    </div>
+
+    <!-- ========== RESULTS ========= -->
+    <div id="results-container" style="display:none;">
+        <h2>Quiz Results</h2>
+        <div id="score"></div>
+        <h3>Mistakes</h3>
+        <div id="mistakes"></div>
+        <button onclick="location.reload()">Restart Quiz</button>
+    </div>
 
     <script src="script/script.js"></script>
 </body>
