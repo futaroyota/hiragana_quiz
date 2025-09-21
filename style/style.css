@@ -1,175 +1,128 @@
-/* General Styles */
+/* ========== GLOBAL ========= */
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
     margin: 0;
     padding: 0;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
 
-.container {
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    padding: 30px;
-    max-width: 500px;
-    width: 90%;
+/* ========== MENU ========= */
+#menu {
     text-align: center;
 }
 
-/* Header */
-header h1 {
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card {
+    background: #fff;
+    padding: 30px 50px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+
+/* ========== QUIZ ========= */
+#quiz-container {
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    color: #333; /* Dark text for questions */
+}
+
+.question {
+    font-size: 36px;
     margin-bottom: 20px;
-    color: #333;
-}
-
-/* Progress Bar */
-#progress-bar {
-    width: 100%;
-    background: #eee;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    overflow: hidden;
-}
-
-#progress {
-    height: 10px;
-    background: #4caf50;
-    width: 0%;
-    transition: width 0.3s ease;
-}
-
-/* Timer */
-#timer {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-/* Question fade animation */
-#question-container, #answer-container {
-    opacity: 1;
+    color: #222; /* Darker question text */
     transition: opacity 0.5s ease;
 }
 
-.fade-out {
-    opacity: 0;
-}
-
-.fade-in {
-    opacity: 1;
-}
-
-/* Question */
-#question-container {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    min-height: 60px;
-}
-
-/* Answer Options */
-#answer-container button {
-    display: block;
-    width: 80%;
-    margin: 10px auto;
-    padding: 10px;
-    font-size: 1.2rem;
-    border: none;
+.option-btn {
+    padding: 15px;
+    background: #f0f0f0; /* light grey instead of white */
+    border: 2px solid #4a90e2;
     border-radius: 10px;
+    font-size: 20px;
     cursor: pointer;
-    background: #f0f0f0;
-    transition: all 0.2s ease;
+    color: #222; /* dark text */
+    transition: all 0.3s ease;
 }
 
-#answer-container button:hover {
-    background: #4caf50;
-    color: #fff;
+.option-btn:hover {
+    background: #4a90e2;
+    color: #fff; /* white text on blue when hovered */
+    transform: scale(1.05);
 }
 
-/* Input Field */
-#answer-container input {
-    padding: 10px;
-    font-size: 1.5rem;
-    width: 80%;
+
+/* ========== RESULTS ========= */
+#results-container {
     text-align: center;
-    border-radius: 10px;
-    border: 2px solid #ccc;
-}
-
-/* Buttons */
-.btn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 10px;
-    background: #4caf50;
-    color: white;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: #45a049;
-}
-
-/* Hidden */
-.hidden {
-    display: none;
-}
-
-/* Confetti Canvas */
-#confetti {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-}
-
-/* Results Styling */
-#mistakes {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 15px;
+    width: 90%;
+    max-width: 600px;
 }
 
 .mistake-card {
-    background: #f9f9f9;
-    border-radius: 15px;
-    padding: 10px 15px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    transform: translateY(20px);
-    opacity: 0;
-    transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-.mistake-card.correct {
-    border-left: 5px solid #4caf50;
+/* ========== CONFETTI ========= */
+.confetti-container {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:hidden;
 }
 
-.mistake-card.incorrect {
-    border-left: 5px solid #e74c3c;
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: red;
+    opacity: 0.7;
+    animation: fall linear forwards;
 }
 
-/* Score Highlight */
-#score {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-    color: #333;
+@keyframes fall {
+    0% {transform: translateY(0) rotate(0deg);}
+    100% {transform: translateY(100vh) rotate(360deg);}
 }
 
-/* Fade in for results */
-#results-container.show {
-    opacity: 1;
-    transition: opacity 0.5s ease;
+/* ========== BUTTON ========= */
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    background: #4a90e2;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #357ab8;
 }
