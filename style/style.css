@@ -1,0 +1,175 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+}
+
+/* Header */
+header h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Progress Bar */
+#progress-bar {
+    width: 100%;
+    background: #eee;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+#progress {
+    height: 10px;
+    background: #4caf50;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* Timer */
+#timer {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Question fade animation */
+#question-container, #answer-container {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+/* Question */
+#question-container {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    min-height: 60px;
+}
+
+/* Answer Options */
+#answer-container button {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #f0f0f0;
+    transition: all 0.2s ease;
+}
+
+#answer-container button:hover {
+    background: #4caf50;
+    color: #fff;
+}
+
+/* Input Field */
+#answer-container input {
+    padding: 10px;
+    font-size: 1.5rem;
+    width: 80%;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+}
+
+/* Buttons */
+.btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    background: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #45a049;
+}
+
+/* Hidden */
+.hidden {
+    display: none;
+}
+
+/* Confetti Canvas */
+#confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Results Styling */
+#mistakes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.mistake-card {
+    background: #f9f9f9;
+    border-radius: 15px;
+    padding: 10px 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.mistake-card.correct {
+    border-left: 5px solid #4caf50;
+}
+
+.mistake-card.incorrect {
+    border-left: 5px solid #e74c3c;
+}
+
+/* Score Highlight */
+#score {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Fade in for results */
+#results-container.show {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}

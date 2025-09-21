@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiragana Quiz</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hiragana Quiz</h1>
+        </header>
+
+        <!-- Quiz Section -->
+        <div id="quiz-container">
+            <div id="progress-bar">
+                <div id="progress"></div>
+            </div>
+
+            <div id="timer">Time Left: <span id="time-left">15</span>s</div>
+
+            <div id="question-container"></div>
+
+            <div id="answer-container"></div>
+
+            <button id="next-btn" class="btn hidden">Next</button>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results-container" class="hidden">
+            <h2>Quiz Results</h2>
+            <p id="score"></p>
+            <div id="mistakes"></div>
+            <button id="restart-btn" class="btn">Restart Quiz</button>
+        </div>
+    </div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti"></canvas>
+
+    <script src="script/script.js"></script>
+</body>
+</html>
