@@ -7,38 +7,53 @@
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-    <!-- ========== MENU ========= -->
-    <div id="menu">
-        <h1>Japanese Quiz</h1>
-        <div class="cards">
-            <div class="card" id="hiragana-btn">Hiragana</div>
-            <div class="card" id="katakana-btn">Katakana</div>
-            <div class="card" id="kanji-btn">Kanji</div>
+    <div id="main-container">
+        <!-- ================== MENU ================== -->
+        <div id="menu">
+            <h1>Japanese Quiz</h1>
+            <div class="cards">
+                <div class="card" id="hiragana-btn">Hiragana</div>
+                <div class="card" id="katakana-btn">Katakana</div>
+                <div class="card" id="kanji-btn">Kanji</div>
+            </div>
         </div>
-    </div>
 
-    <!-- ========== QUIZ ========= -->
-    <div id="quiz-container" style="display:none;">
-        <div class="quiz-header">
-            <progress id="progress" max="100" value="0"></progress>
-            <div id="timer">Time: 0s</div>
+        <!-- ================== QUIZ CONTAINER ================== -->
+        <div id="quiz-container" style="display:none;">
+            <div class="quiz-header">
+                <progress id="progress" max="100" value="0"></progress>
+                <div id="timer">Time: 0s</div>
+            </div>
+            <div id="question" class="question"></div>
+            <div id="options" class="options"></div>
         </div>
-        <div id="question" class="question"></div>
-        <div id="options" class="options"></div>
-    </div>
 
-    <!-- ========== RESULTS ========= -->
-    <div id="results-container" style="display:none;">
-        <h2>Quiz Results</h2>
-        <div id="score"></div>
-        <h3>Mistakes</h3>
-        <div id="mistakes"></div>
-        <button onclick="location.reload()">Restart Quiz</button>
+        <!-- ================== RESULTS PAGE ================== -->
+        <div id="results-container" style="display:none;">
+            <h2>Quiz Results</h2>
+            <div id="score"></div>
+            <h3>Mistakes</h3>
+            <div id="mistakes"></div>
+            <button onclick="location.reload()">Restart Quiz</button>
+        </div>
+
+        <!-- ================== QUICK LINKS & CONTACT ================== -->
+        <div id="quick-links">
+            <h3>Quick Links & Contact</h3>
+            <ul>
+                <li><a href="https://www.facebook.com/zyntrixz" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                <li><a href="https://x.com/XootyC" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                <li><a href="https://www.instagram.com/zyntrixzz/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+            </ul>
+        </div>
+
+        <!-- ================== COPYRIGHT ================== -->
+        <footer id="footer">
+            &copy; 2025 Futaro Yota. All rights reserved.
+        </footer>
     </div>
 
     <script src="script/script.js"></script>
 </body>
+
 </html>
-
-
-
