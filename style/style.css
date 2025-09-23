@@ -1,0 +1,415 @@
+/* ================== GLOBAL STYLES ================== */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ffe6f0, #ffd6e8); /* soft sakura pink gradient */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Cherry blossom petals animation */
+@keyframes floatPetals {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+.petal {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: pink;
+    border-radius: 50% 50% 50% 50%;
+    opacity: 0.8;
+    animation: floatPetals linear infinite;
+}
+
+/* ================== MAIN CONTAINER ================== */
+#main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 30px 20px;
+    position: relative;
+    z-index: 1; /* above petals */
+}
+
+/* ================== MENU ================== */
+#menu {
+    text-align: center;
+}
+
+#menu h1 {
+    font-family: 'Georgia', serif;
+    font-size: 48px;
+    color: #ff66a3; /* cherry blossom pink */
+    text-shadow: 1px 1px 2px #fff;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.card {
+    background: #fff0f6; /* light pink card */
+    padding: 30px 50px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(255, 182, 193, 0.5);
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid #ffc0cb;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 25px rgba(255, 182, 193, 0.7);
+    background: #ffe6f0;
+    color: #ff3399;
+}
+
+/* ================== QUIZ ================== */
+#quiz-container {
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    color: #333;
+    background: rgba(255, 240, 245, 0.8);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(255, 182, 193, 0.4);
+}
+
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+progress {
+    width: 70%;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    appearance: none;
+}
+
+progress::-webkit-progress-bar {
+    background: #ffe6f0;
+    border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+    background: #ff66a3;
+    border-radius: 10px;
+}
+
+.question {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #ff3399;
+    transition: opacity 0.5s ease;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.option-btn {
+    padding: 15px;
+    background: #fff0f6;
+    border: 2px solid #ff99c8;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #ff3399;
+    transition: all 0.3s ease;
+}
+
+.option-btn:hover {
+    background: #ffb3d1;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* ================== RESULTS ================== */
+#results-container {
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    background: rgba(255, 240, 245, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(255, 182, 193, 0.4);
+}
+
+.mistake-card {
+    background: #fff0f6;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+}
+
+/* ================== BUTTON ================== */
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 15px;
+    background: #ff66a3;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #ff3399;
+}
+
+/* ================== QUICK LINKS & CONTACT ================== */
+#quick-links {
+    text-align: center;
+    margin-top: 30px;
+    color: #555;
+}
+
+#quick-links h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+#quick-links ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#quick-links a {
+    text-decoration: none;
+    color: #ff66a3;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+#quick-links a i {
+    margin-right: 6px;
+}
+
+#quick-links a:hover {
+    color: #ff3399;
+}
+
+/* ================== SAKURA PEDALS ================== */
+.sakura-petal {
+    position: fixed;
+    top: -50px;
+    width: 15px;
+    height: 15px;
+    background: pink;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255,182,193,0.7);
+    pointer-events: none;
+    transform: rotate(0deg);
+    animation-name: fall;
+    animation-timing-function: linear;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Body gradient */
+body {
+    background: linear-gradient(160deg, #ffe6f0, #fff0f5);
+    overflow-x: hidden;
+}
+
+/* Card Enhancements */
+.card {
+    background: #ffe6f0;
+    border: 2px solid #ffb6c1;
+    box-shadow: 0 10px 20px rgba(255,182,193,0.4);
+    border-radius: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(255,182,193,0.6);
+}
+
+/* Buttons */
+.option-btn {
+    background: linear-gradient(135deg, #fff0f5, #ffe6f0);
+    border: 2px solid #ffb6c1;
+    border-radius: 15px;
+    color: #c2185b;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.option-btn:hover {
+    background: #ffb6c1;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Quiz question box */
+.quiz-question {
+    border: 2px solid #ffb6c1;
+    border-radius: 15px;
+    padding: 15px;
+    background: #fff0f5;
+}
+
+/* Results section highlight */
+.result-score {
+    background: #ffb6c1;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(255,182,193,0.5);
+    display: inline-block;
+}
+
+
+/* ================== MUSIC ================== */
+/* ===== Sakura Music Player ===== */
+/* Base Player Box */
+#music-player {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background: rgba(255, 240, 245, 0.95);
+    border: 2px solid #ffb6c1;
+    border-radius: 25px;
+    padding: 10px 14px;
+    box-shadow: 0 6px 20px rgba(255, 182, 193, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* Toggle Button (always visible) */
+#toggle-player {
+    background: #ff66a3;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(255, 182, 193, 0.5);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+#toggle-player:hover {
+    background: #c2185b;
+    transform: scale(1.1);
+}
+
+/* Controls (desktop default visible, mobile collapsible) */
+#player-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Play/Pause Buttons */
+#player-controls button {
+    background: #ffb6c1;
+    border: none;
+    border-radius: 50%;
+    padding: 8px;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#player-controls button:hover {
+    background: #ff66a3;
+    transform: scale(1.1);
+}
+
+/* Volume Slider */
+#player-controls input[type="range"] {
+    -webkit-appearance: none;
+    width: 80px;
+    height: 6px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #ff66a3, #ffc0cb);
+    outline: none;
+    cursor: pointer;
+}
+
+/* Slider Thumb */
+#player-controls input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #ff66a3;
+    box-shadow: 0 0 5px rgba(255, 102, 163, 0.5);
+    transition: transform 0.2s ease;
+}
+
+#player-controls input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 600px) {
+    #player-controls {
+        display: none; /* hidden by default on phones */
+    }
+
+    #music-player.expanded #player-controls {
+        display: flex; /* show when expanded */
+        flex-direction: row;
+        gap: 6px;
+    }
+}
+
+
+/* ================== COPYRIGHT ================== */
+#footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #555;
+    opacity: 0.8;
+}
+
+/* ================== CONFETTI ================== */
+.confetti {
+    background: #ffb6c1;
+}
